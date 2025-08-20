@@ -15,6 +15,7 @@
 
 FROM ubuntu:20.04
 
+
 # 设置环境变量（可通过docker run -e 覆盖）
 ENV DEBIAN_FRONTEND=noninteractive \
     DISPLAY=:10 \
@@ -59,6 +60,9 @@ RUN echo 'session.screen0.workspaces: 4' > /home/desktop/.fluxbox/init && \
 
 # 设置文件权限
 RUN chown -R desktop:desktop /home/desktop
+
+# 将默认缩放模式从 'off' 修改为 'scale' (自动缩放至窗口)
+RUN sed -i "s/UI.initSetting('resize', 'off');/UI.initSetting('resize', 'scale');/" /usr/share/novnc/app/ui.js
 
 # 配置noVNC默认页面，让根路径直接访问桌面
 RUN ln -sf /usr/share/novnc/vnc.html /usr/share/novnc/index.html

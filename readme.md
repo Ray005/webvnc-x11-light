@@ -142,3 +142,4 @@ docker build -t webvnc-x11-light .
 - **X11VNC**: X11服务器，处理图形显示
 - **Xvfb**: 虚拟帧缓冲区，提供无头显示环境
 - **Docker**: 容器化部署平台
+- **fluxbox**: 轻量级窗口化管理

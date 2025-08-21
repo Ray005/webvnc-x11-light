@@ -8,6 +8,7 @@
 #   -e VNC_PASSWORD=yourpassword \
 #   -e SCREEN_WIDTH=1440 \
 #   -e SCREEN_HEIGHT=720 \
+#   -e WORKSPACE_NUM=1 \
 #   --name x11vnc webvnc-x11-light
 # 
 # 浏览器访问：http://localhost:8888 (直接访问，无需vnc.html)
@@ -47,8 +48,10 @@ RUN useradd -m -s /bin/bash desktop
 # 创建必要的目录
 RUN mkdir -p /home/desktop/.fluxbox /var/log/supervisor
 
+ENV WORKSPACE_NUM=1
+
 # 配置Fluxbox
-RUN echo 'session.screen0.workspaces: 4' > /home/desktop/.fluxbox/init && \
+RUN echo "session.screen0.workspaces: ${WORKSPACE_NUM}" > /home/desktop/.fluxbox/init && \
     echo 'session.screen0.toolbar.visible: true' >> /home/desktop/.fluxbox/init && \
     echo 'session.screen0.toolbar.placement: TopCenter' >> /home/desktop/.fluxbox/init && \
     echo '[begin] (Fluxbox)' > /home/desktop/.fluxbox/menu && \

@@ -1,4 +1,4 @@
-# 基于Alpine的精简远程桌面镜像
+# 基于ubuntu的精简远程桌面镜像
 # Docker运行命令：
 # docker build -t webvnc-x11-light .
 # 

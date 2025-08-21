@@ -75,8 +75,6 @@ docker build -t webvnc-x11-light .
 
 - 访问：http://<你的服务器IP>:8888
 
-![image.png](attachment:baf95bf7-86ab-4740-a324-65a560dfcc5f:image.png)
-
 ### 第三步：在服务器端其他位置转发X11到VNC桌面
 
 - 设置
